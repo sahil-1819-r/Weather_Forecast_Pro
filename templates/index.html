@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+    <div class= "container">
+
+     <h1>Weather Forecast Pro</h1>
+
+        <form action "/" method= "POST">
+        
+            <input 
+                type="text" 
+                name="city"
+                placeholder="Enter your city" 
+                required>
+            <button type= "submit"> Search </button>
+        
+        </form>
+
+    </div>
+
+{% endblock %}

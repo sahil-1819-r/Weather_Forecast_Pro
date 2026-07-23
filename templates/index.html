@@ -10,16 +10,55 @@ Home
 
      <h1>Weather Forecast Pro</h1>
 
-        <form action "/" method= "POST">
+        <form method= "POST">
+
+            <button id="location-btn" type="button">
+                 📍 Use My Location
+            </button>
         
             <input 
                 type="text" 
                 name="city"
                 placeholder="Enter your city" 
                 required>
-            <button type= "submit"> Search </button>
+            <button type= "Submit"> Search </button>
         
         </form>
+
+        {% if city %}
+                
+                {% if error %}
+                
+                   <p class="error">{{ error }}</p>
+                    
+                {% endif %}
+
+                <div id= "weather-result">
+                    {% if weather %}
+
+                        <div class="weather-card">
+
+                                 <h2>📍 {{ city }}, {{ weather.country }}</h2>
+
+                                 <img src="https:{{ weather.icon }}" alt="Weather Icon">
+
+                                 <h1>{{ weather.temperature }}°C</h1>
+
+                                  <h3>{{ weather.condition }}</h3>
+
+                                 <div class="weather-info">
+
+                                   <p>💧 Humidity : {{ weather.humidity }}%</p>
+
+                                    <p>🌬 Wind Speed : {{ weather.wind_kph }} km/h</p>
+
+                                </div>
+
+                        </div>
+
+                    {% endif %}
+                </div>
+        {%endif%}
 
     </div>
 

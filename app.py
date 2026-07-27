@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from services.weather_service import get_weather, get_weather_by_coordinates
+from services.weather_service import get_weather, get_weather_by_coordinates, get_forecast, get_major_cities_weather
 
 app =   Flask(__name__)
 
@@ -8,6 +8,8 @@ def home():
     
     city= "" 
     weather= None
+    forecast= None
+    cities_weather = get_major_cities_weather()
     error= None
     
     if request.method == "POST":
@@ -17,7 +19,16 @@ def home():
 
             if weather is None:
                   error = "City not found!"
-    return render_template("index.html", city=city, weather= weather, error= error)
+            forecast= get_forecast(city)
+            
+    return render_template(
+        "index.html", 
+        city=city, 
+        weather= weather,
+        forecast= forecast,
+        cities_weather=cities_weather,
+        error= error
+    )
                   
 @app.route("/location", methods=["POST"])
 def location_weather():
@@ -31,7 +42,7 @@ def location_weather():
 
     print(latitude, longitude)
 
-    return jsonify({weather})
+    return jsonify(weather)
         
 if  __name__== "__main__":
     app.run(debug=True) 

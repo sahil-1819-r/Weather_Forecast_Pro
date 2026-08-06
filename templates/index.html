@@ -118,53 +118,65 @@ Home
 
             <!-- Forecast Placeholder -->
 
-                    <div class="forecast-panel">
+                <div class="forecast-panel">
 
-                            <h2>📅 5-Day Forecast</h2>
+                    <h2>📅 3-Day Forecast</h2>
 
-                            {% if forecast %}
+                    {% if forecast %}
 
-                            <div class="forecast-list">
+                    <div class="forecast-list">
 
-                                {% for day in forecast %}
+                        {% for day in forecast %}
 
-                                <div class="forecast-card">
+                        <div class="forecast-card">
 
-                                    <div class="forecast-date">
-                                        {{ day.date }}
-                                    </div>
+                            <div class="forecast-date">
+                                {{ day.date }}
+                            </div>
 
-                                    <div class="forecast-weather">
+                            <div class="forecast-weather">
 
-                                        <img src="https:{{ day.icon }}" alt="Weather Icon">
+                                <img src="https:{{ day.icon }}" alt="Weather Icon">
 
-                                        <span>{{ day.condition }}</span>
-
-                                    </div>
-
-                                    <div class="forecast-temp">
-
-                                        {{ day.max_temp }}° / {{ day.min_temp }}°
-
-                                    </div>
-
-                                </div>
-
-                                {% endfor %}
+                                <span>{{ day.condition }}</span>
 
                             </div>
 
-                            {% else %}
+                            <div class="forecast-temp">
 
-                            <div class="forecast-placeholder">
-
-                                Search a city to view forecast.
+                                {{ day.max_temp }}° / {{ day.min_temp }}°
 
                             </div>
 
-                            {% endif %}
+                        </div>
+
+                        {% endfor %}
 
                     </div>
+
+                    {% if weather %}
+
+                    <div class="local-time-card">
+
+                        <h3>🕒 Local Time</h3>
+
+                        <p>{{ weather.local_time }}</p>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% else %}
+
+                    <div class="forecast-placeholder">
+
+                        Search a city to view forecast.
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
         </section>
 
         <!-- ================= WEATHER HIGHLIGHTS ================= -->

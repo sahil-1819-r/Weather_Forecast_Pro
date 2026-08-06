@@ -418,7 +418,41 @@ body{
 
     white-space:nowrap;
 
-}   
+}
+
+.local-time-card{
+
+    margin-top:20px;
+
+    background:#273549;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    text-align:center;
+
+}
+
+.local-time-card h3{
+
+    color:var(--gray);
+
+    font-size:16px;
+
+    margin-bottom:10px;
+
+}
+
+.local-time-card p{
+
+    font-size:22px;
+
+    font-weight:600;
+
+    color:var(--primary);
+
+}
 
 /* ===========================
    WEATHER HIGHLIGHTS

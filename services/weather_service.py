@@ -70,7 +70,7 @@ def get_weather_by_coordinates(latitude,longitude):
 
 def get_forecast(city):
      
-     url= url = f"http://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={city}&days=5"
+     url= url = f"http://api.weatherapi.com/v1/forecast.json?key={API_KEY}&q={city}&days=3"
      response= requests.get(url)
      data= response.json()
      
